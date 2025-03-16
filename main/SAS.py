@@ -149,7 +149,7 @@ def one_way_scan(intervals, interval_ids, points, point_ids, max_dim_check, pair
 
 
 @njit("int32(int32[:, :], int32[:], int32[:, :], int32[:], int32, int32[:, :], int32)", nogil=True, cache=True, fastmath=True, parallel=True)
-def _two_way_scan(intervals, interval_ids, points, point_ids, max_dim_check, pairs, count):
+def two_way_scan(intervals, interval_ids, points, point_ids, max_dim_check, pairs, count):
 
     """
     Parallelized two-way scan with streaming for optimal performance.
@@ -351,7 +351,7 @@ def hybrid(intervals, interval_ids, points, point_ids, lo, hi, dim, count, pairs
 
     # Step 3: second hybridization method: scan if size of input is smaller than cutoff
     if intervals.shape[0] < cutoff or points.shape[0] < cutoff:
-        return _two_way_scan(intervals, interval_ids, points, point_ids, dim, pairs, count)
+        return two_way_scan(intervals, interval_ids, points, point_ids, dim, pairs, count)
 
     # Step 4: let intervals_m contain the intervals that would be stored at this node of the segment tree
     # because they span the segment [lo, hi), meaning it is one of their canonical segments
@@ -386,7 +386,7 @@ def hybrid(intervals, interval_ids, points, point_ids, lo, hi, dim, count, pairs
 
     # If we failed to divide the segment, just scan
     if mi == hi or mi == lo:
-        return _two_way_scan(intervals_lr, interval_ids_lr, points, point_ids, dim, pairs, count)
+        return two_way_scan(intervals_lr, interval_ids_lr, points, point_ids, dim, pairs, count)
 
     # Partition points by the median
     mask_points_l = points[:, dim_low] < mi
