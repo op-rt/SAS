@@ -6,6 +6,11 @@
 
 A Python implementation of the ['Fast Software for Box Intersections'](https://dl.acm.org/doi/10.1145/336154.336192) algorithm  by Zomorodian &amp; Edelsbrunner (2000)
 
+Takes much inspiration from the [Rust port](https://github.com/derivator/box_intersect_ze/tree/main) by "Derivator"
+
+Which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/tree/master/Box_intersection_d/include/CGAL) in CGAL
+
+## Description
 The core algorithm uses a hybrid approach, combining a streamed segment tree with 
 scanning techniques, switching between them based on a configurable cutoff threshold.
 
@@ -17,12 +22,19 @@ This version contains several adaptations:
 - Numba JIT compilation for performance
 - Parallelized operations
 
-Takes much inspiration from the [Rust port](https://github.com/derivator/box_intersect_ze/tree/main) by "Derivator"
+## Example
 
-Which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/tree/master/Box_intersection_d/include/CGAL) in CGAL
+The main `query_pairs` function takes a single vectorized numpy array containing all AABBs (Axis-Aligned Bounding Boxes). Each AABB is represented as [min_x, max_x, min_y, max_y] for a 2d bounding rectangle or as [min_x, max_x, min_y, max_y, min_z, max_z] for a 3d bounding box. The algorithm then operates on the entire dataset at once, avoiding individual checks:
 
+```python
+# Bulk extraction of all bounding volumes
+AABBs = bodies.get_AABB()
+
+# Perform batch query to find all unique colliding pairs
+pairs = SAS.query_pairs(AABBs, cutoff=3000)
+```
 ## Test
-Detects up to 68,000 unique pairs of colliding rectangles from a set of **20,000** moving AABBs at 60fps
+Can maintain 60 fps up to 68,000 unique pairs of colliding rectangles from a set of **20,000** moving AABBs.
 
 *Please note that the above test was carried out without displaying any primitives and only approximately reflects the performance of pure numerical collision detection calculations.
 Rendering all bounding rectangles would logically only lower the frame rate.*
