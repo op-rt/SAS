@@ -23,7 +23,7 @@ Which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/t
 
 ## Dependancies
 
-<small>Visualization</small>:
+##### Visualization:
 - py5 – Main graphical environment for testing and visualization.  
 - render_utils (included) – Fast primitive rendering in Py5.  
 
