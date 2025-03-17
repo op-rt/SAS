@@ -15,13 +15,13 @@ scanning techniques, switching between them based on a configurable cutoff thres
 For lack of a name this algorithm will be referred to as "Stream And Scan" (SAS).
 
 This version contains several adaptations:
+- Designed for the "complete case" (self-intersection within one set)
 - Simplified median approximation mechanism
 - Pre-allocated arrays for storing results
 - Numba JIT compilation for performance
 - Parallelized operations
 
-This version is designed to take a single array of AABBs, addressing only the "complete case" 
-(self-intersection within one set). However, the entry function can be easily extended to handle the "bipartite case" (intersection 
+Note: the entry function can be easily extended to handle the "bipartite case" (intersection 
 between two different sets of boxes) with minimal modifications.
 
 ## Example
