@@ -6,7 +6,7 @@
 
 A Python implementation of the ['Fast Software for Box Intersections'](https://dl.acm.org/doi/10.1145/336154.336192) algorithm  by Zomorodian &amp; Edelsbrunner (2000).
 
-Takes much inspiration from the [Rust port](https://github.com/derivator/box_intersect_ze/tree/main) by "Derivator", which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/tree/master/Box_intersection_d/include/CGAL) in CGAL.
+Takes much inspiration from the [Rust port](https://github.com/derivator/box_intersect_ze/tree/main) by "derivator", which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/tree/master/Box_intersection_d/include/CGAL) in CGAL.
 
 ## Description
 The core algorithm uses a hybrid approach, combining a streamed segment tree with 
