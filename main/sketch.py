@@ -35,8 +35,6 @@ grey_packed = pack_color(np.array([140, 140, 140]))
 verts_pattern_2d = np.array([0, 3, 1, 3, 1, 2, 0, 2])
 
 
-
-
 def setup():
     size(W, H, P2D)
     stroke_cap(PROJECT)
