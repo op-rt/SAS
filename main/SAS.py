@@ -11,6 +11,7 @@ scanning techniques, switching between them based on a configurable cutoff thres
 (For lack of a name this algorithm will be referred to as "SAS" -Stream And Scan-)
 
 This version contains several adaptations:
+- Designed for the "complete case" (self-intersection within one set)
 - Simplified median approximation mechanism
 - Pre-allocated arrays for storing results
 - Numba JIT compilation for performance
