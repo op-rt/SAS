@@ -20,6 +20,10 @@ This version contains several adaptations:
 - Numba JIT compilation for performance
 - Parallelized operations
 
+This version is designed to take a single array of AABBs, addressing only the "complete case" 
+(self-intersection within one set). However, the entry function can be easily extended to handle the "bipartite case" (intersection 
+between two different sets of boxes) with minimal modifications.
+
 ## Example
 
 The main `query_pairs` method takes a single vectorized numpy array containing all AABBs (Axis-Aligned Bounding Boxes). Each AABB is represented as `[min_x, max_x, min_y, max_y]` for a 2d bounding rectangle or as `[min_x, max_x, min_y, max_y, min_z, max_z]` for a 3d bounding box. The algorithm then operates on the entire dataset at once, avoiding individual checks:
