@@ -417,7 +417,7 @@ def hybrid(intervals, interval_ids, points, point_ids, lo, hi, dim, count, pairs
 
 
 @njit(cache=True)
-def query_pairs(boxes, cutoff=3000):
+def query_pairs(boxes, cutoff=1500):
 
     """
     Entry point function for finding all box intersections.
@@ -432,7 +432,7 @@ def query_pairs(boxes, cutoff=3000):
     Parameters
     ----------
     AABBs  (2d array): Array of axis-aligned bounding boxes
-    cutoff (int):      Threshold below which to switch from recursion to scanning (default=2500)
+    cutoff (int):      Threshold below which to switch from recursion to scanning (default=1500)
         
     Returns
     -------
