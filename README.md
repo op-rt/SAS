@@ -23,7 +23,10 @@ Which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/t
 
 ## Dependancies
 
-- **py5** – Main graphical environment for testing and visualization.
-- **render_utils** (included) - Fast primitive rendering in Py5.
-- **NumPy** – Efficient array operations.
+**Visualization:**
+- **py5** – Main graphical environment for testing and visualization.  
+- **render_utils** (included) – Fast primitive rendering in Py5.  
+
+**Core dependencies:**
+- **NumPy** – Efficient array operations.  
 - **Numba** – JIT compilation for performance.
