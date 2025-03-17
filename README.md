@@ -24,7 +24,7 @@ This version contains several adaptations:
 
 ## Example
 
-The main `query_pairs` function takes a single vectorized numpy array containing all AABBs (Axis-Aligned Bounding Boxes). Each AABB is represented as [min_x, max_x, min_y, max_y] for a 2d bounding rectangle or as [min_x, max_x, min_y, max_y, min_z, max_z] for a 3d bounding box. The algorithm then operates on the entire dataset at once, avoiding individual checks:
+The main `query_pairs` function takes a single vectorized numpy array containing all AABBs (Axis-Aligned Bounding Boxes). Each AABB is represented as `[min_x, max_x, min_y, max_y]` for a 2d bounding rectangle or as `[min_x, max_x, min_y, max_y, min_z, max_z]` for a 3d bounding box. The algorithm then operates on the entire dataset at once, avoiding individual checks:
 
 ```python
 # Bulk extraction of all bounding volumes
