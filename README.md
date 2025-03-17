@@ -22,7 +22,7 @@ Takes much inspiration from the [Rust port](https://github.com/derivator/box_int
 Which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/tree/master/Box_intersection_d/include/CGAL) in CGAL
 
 ## Test
-- Detects up to 68,000 pairs of colliding rectangles from a set of **20,000** moving AABBs at 60fps
+Detects up to 68,000 unique pairs of colliding rectangles from a set of **20,000** moving AABBs at 60fps
 
 *Please note that the above test was carried out without displaying any primitives and only approximately reflects the performance of pure numerical collision detection calculations.
 Rendering all bounding rectangles would logically only lower the frame rate.*
