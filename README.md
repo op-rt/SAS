@@ -4,17 +4,17 @@
 ![Dependencies](https://img.shields.io/badge/dependencies-NumPy-brightgreen)
 ![Dependencies](https://img.shields.io/badge/dependencies-Numba-orange)
 
-A Python implementation of the ['Fast Software for Box Intersections'](https://dl.acm.org/doi/10.1145/336154.336192) algorithm  by Zomorodian &amp; Edelsbrunner (2000)
+A Python implementation of the ['Fast Software for Box Intersections'](https://dl.acm.org/doi/10.1145/336154.336192) algorithm  by Zomorodian &amp; Edelsbrunner (2000).
 
-Takes much inspiration from the [Rust port](https://github.com/derivator/box_intersect_ze/tree/main) by "Derivator"
+Takes much inspiration from the [Rust port](https://github.com/derivator/box_intersect_ze/tree/main) by "Derivator".
 
-Which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/tree/master/Box_intersection_d/include/CGAL) in CGAL
+Which itself is based on the [C++ implementation](https://github.com/CGAL/cgal/tree/master/Box_intersection_d/include/CGAL) in CGAL.
 
 ## Description
 The core algorithm uses a hybrid approach, combining a streamed segment tree with 
 scanning techniques, switching between them based on a configurable cutoff threshold.
 
-(For lack of a name this algorithm will be referred to as "SAS" -Stream And Scan-)
+For lack of a name this algorithm will be referred to as "Stream And Scan" (SAS).
 
 This version contains several adaptations:
 - Simplified median approximation mechanism
@@ -33,6 +33,8 @@ AABBs = bodies.get_AABB()
 # Perform batch query to find all unique colliding pairs
 pairs = SAS.query_pairs(AABBs, cutoff=3000)
 ```
+The `cutoff` parameter controls when the algorithm switches from recursive partitioning to direct scanning. Higher values generally yield better performance by minimizing recursion overhead. Default value is `1500`.
+
 ## Test
 Can maintain 60 fps up to 68,000 unique pairs of colliding rectangles from a set of **20,000** moving AABBs.
 
