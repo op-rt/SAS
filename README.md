@@ -36,5 +36,5 @@ Tested on a 2020 MSI laptop with Intel Core i7-8750H CPU @ 2.20GHz and 32Gb RAM
 - render_utils (included) – Fast primitive rendering in Py5.  
 
 ##### Core dependencies:
-- NumPy – Efficient array operations.  
-- Numba – JIT compilation for performance.
+- NumPy 
+- Numba 
