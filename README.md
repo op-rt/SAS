@@ -12,7 +12,7 @@ Takes much inspiration from the [Rust port](https://github.com/derivator/box_int
 The core algorithm uses a hybrid approach, combining a streamed segment tree with 
 scanning techniques, switching between them based on a configurable cutoff threshold.
 
-For lack of a name this algorithm will be referred to as "Stream And Scan" (SAS).
+For lack of a name this algorithm will be referred to as "Stream And Scan" (SAS). Unlike other datastructures such as RTrees, Quad-trees or kd-Trees the hybrid algorithm used **streams** the segment tree on the fly, without explicitly storing it, before **scanning**. It's also a direct reference to SAP (Sweep and Prune).
 
 This version contains several adaptations:
 - Designed for the "complete case" (self-intersection within one set)
