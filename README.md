@@ -38,7 +38,7 @@ pairs = SAS.query_pairs(AABBs, cutoff=3000)
 The `cutoff` parameter controls when the algorithm switches from recursive partitioning to direct scanning. Higher values generally yield better performance by minimizing recursion overhead. Default value is `1500`.
 
 ## Test
-Can maintain 60 fps up to 68,000 unique pairs of colliding rectangles from a set of **20,000** moving AABBs.
+Can maintain 60fps up to 68,000 unique pairs of colliding rectangles from a set of **20,000** moving AABBs.
 
 *Please note that the above test was carried out without displaying any primitives and only approximately reflects the performance of pure numerical collision detection calculations.
 Rendering all bounding rectangles would logically only lower the frame rate.*
